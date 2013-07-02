@@ -1,0 +1,1 @@
+Funções facilitadoras para trabalhar com o postgresql
