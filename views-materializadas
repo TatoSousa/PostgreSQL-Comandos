@@ -1,0 +1,9 @@
+Views Materializada
+	-- Não restaurando as views
+		pg_dump database -Fc backup.dump
+		pg_restore -l backup.dump | sed '/MATERIALIZED VIEW DATA/d' > restore.lst
+		pg_restore -L restore.lst -d database backup.dump
+		
+	-- Opção 2 de comandos
+		pg_restore -l -Fd backup_dir | grep 'MATERIALIZED VIEW DATA' > refresh.lst
+		pg_restore -L refresh.lst -Fd backup_dir mydatabase
