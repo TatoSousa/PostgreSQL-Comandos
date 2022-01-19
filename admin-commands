@@ -1,6 +1,9 @@
 -- UPTIME DATABASE
     SELECT date_trunc('second', current_timestamp - pg_postmaster_start_time()) AS uptime;
 
+-- TAMANHO DA BASE DE DADOS
+       select pg_database_size('Valemobi')/1024/1024;
+
 -- ATIVIDADES NO BANCO DE DADOS
     select datname,
         pid,
