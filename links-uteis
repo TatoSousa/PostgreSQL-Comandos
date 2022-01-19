@@ -28,3 +28,10 @@ Links uteis
 		https://www.percona.com/blog/2019/02/04/pg_repack-rebuild-postgresql-database-objects-online/
 		https://www.enterprisedb.com/postgres-tutorials/how-import-and-export-data-using-csv-files-postgresql
 		https://www.geeksforgeeks.org/postgresql-export-postgresql-table-to-csv-file/?ref=rp
+
+https://www.enterprisedb.com/blog/microsoft-sql-server-mssql-vs-postgresql-comparison-details-what-differences
+https://blog.dbi-services.com/hash-partitioning-in-postgresql-11/
+https://chartio.com/resources/tutorials/analyzing-postgresql-table-statistics/
+https://dev.to/mehdipourfar/backup-and-replicate-postgresql-12-using-pgbackrest-in-ubuntu-20-04-5c4e
+https://www.cybertec-postgresql.com/en/creating-and-refreshing-materialized-views-in-postgresql/?gclid=EAIaIQobChMIkpeb-dvl9AIVCxKRCh2low0wEAAYASAAEgIJRvD_BwE
+http://www.douglaspasqua.com/2011/08/27/postgres-tips-arquivo-de-senha-pgpass/
