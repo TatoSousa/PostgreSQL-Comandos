@@ -1,0 +1,30 @@
+Links uteis
+	-- Management Activities
+		https://stackoverflow.com/questions/22483555/postgresql-give-all-permissions-to-a-user-on-a-postgresql-database
+		https://www.2ndquadrant.com/en/blog/auditing-users-and-roles-in-postgresql/
+	-- Performance Tips
+		https://www.youtube.com/watch?v=BsOYn1CWqBA
+		https://marmelab.com/blog/2019/02/13/how-to-improve-postgres-performances.html
+		https://stackify.com/postgresql-performance-tutorial/
+		https://joinhandshake.com/blog/our-team/postgresql-and-lock-queue/
+		https://pgtune.leopard.in.ua/
+	-- GCP
+		https://www.youtube.com/watch?v=RGYPfVDck0E
+	-- PL/PgSQL
+		https://www.postgresql.org/docs/current/plpgsql.html
+		https://www.enterprisedb.com/postgres-tutorials/10-examples-postgresql-stored-procedures
+	-- Comparativos
+		https://www.cybertec-postgresql.com/en/postgresql-schedulers-comparison-table/
+	-- Partições
+		https://www.postgresql.org/docs/current/ddl-partitioning.html
+		https://stackoverflow.com/questions/54920864/get-table-size-of-partitioned-table-postgres-10
+	-- Backup and restore
+		https://www.postgresql.org/docs/current/reference-client.html		
+		https://arctype.com/blog/backup-postgres-database/
+		https://blog.crunchydata.com/blog/how-to-get-started-with-pgbackrest-and-postgresql-12
+		https://www.hitechnectar.com/blogs/hot-backup-vs-cold-backup/
+	-- Others
+		https://dhamaniasad.github.io/awesome-postgres/
+		https://www.percona.com/blog/2019/02/04/pg_repack-rebuild-postgresql-database-objects-online/
+		https://www.enterprisedb.com/postgres-tutorials/how-import-and-export-data-using-csv-files-postgresql
+		https://www.geeksforgeeks.org/postgresql-export-postgresql-table-to-csv-file/?ref=rp
