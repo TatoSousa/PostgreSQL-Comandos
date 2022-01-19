@@ -40,6 +40,12 @@
     ORDER BY 5 desc 
     LIMIT 11;
 
+--FINALIZANDO UMA CONEXÃO 
+   select pg_terminate_backend(pidxxxx);
+
+-- CANCELANDO UMA TRANSAÇÃO ESPECIFICA
+   select pg_cancel_backend(pidxxxx);
+   
 -- BLOQUEIOS ATUAIS
     SELECT blocked_locks.pid AS blocked_pid,
         blocked_activity.usename AS blocked_user,
@@ -97,3 +103,8 @@
       flush_lag ,
       *
     from pg_stat_replication;
+
+-- Acesso por usuário
+    SELECT table_catalog, table_schema, table_name, privilege_type
+    FROM   information_schema.table_privileges 
+    WHERE  grantee = 'nome_do_usuario';
