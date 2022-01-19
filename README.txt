@@ -1,1 +1,1 @@
-Funções facilitadoras para trabalhar com o postgresql
+FunÃ§Ãµes usadas para administrar bancos de dados PostgreSQL
