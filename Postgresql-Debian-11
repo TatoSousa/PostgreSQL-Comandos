@@ -1,0 +1,113 @@
+DEBIAN 11 INSTALL
+=================
+
+Primeiros passos:
+	- Download da ISO mais recente do DEBIAN;
+	- Desativar a VPN (caso tenha);
+
+Instalando o Debian;
+	- Graphical INSTALL
+	- Select Language English - English
+	- Select Your location - Other > South America > Brazil
+	- Locales - United States - en_US.UTF-8
+	- Keyboard - Brazilian
+	- Configure the network - Select Primary network interface
+	- hostname - debian01
+	- Domain name - localhost
+	- Root Password - Deb291221** (Confirme a senha)
+	- Full name for the new user - usuario
+	- Username for your account - usuario
+	- Password for the new user: Usu291221** (Confirme a senha)
+	- Configure the Clock: São Paulo
+	- Partition disks- Guided - use entire disk > Selecione o disco > Separate /home, /var, and /tmp partitions
+	- Remover as partições (anote os tamanhos) /home e /var
+	- Criar as partições novamente porém invertendo o tamanho > Finish partition and write changes to disk
+	- Write the changes to disks? YES
+	- Configure the package manager? Another media: NO
+	- Configure the package manager? Use a network mirror: YES > Brazil > deb.debian.org
+	- Proxy? Caso precise informe os dados neste campo
+	- Participate in the package usage survey? NO
+	- Software Selection, choose software to install: SSH Server, Standard system utilities;
+	- Install the GRUB boot loader: YES > Seleciona o drive;
+
+APÓS A INSTALAÇÃO DO DEBIAN
+===========================
+	Instalar o VIM - apt install vim
+	Abrir o VIM e comentar a linha do cdrom do arquivo /etc/apt/sources.list
+		cp /etc/apt/sources.list /etc/apt/sources.list.backup
+		vim /etc/apt/sources.list
+			 comentar a linha referente ao cdrom
+	Reiniciar o debian;
+
+Instalando os programas adicionais:
+	apt upgrade
+	apt update
+	apt install rsync -y
+	apt install iotop -y
+	apt install sysstat -y
+	apt install gnupg -y
+    apt install gnupg2 -y
+
+Instalando virtualbox clients
+    ** Fonte: https://www.itzgeek.com/how-tos/linux/debian/how-to-install-virtualbox-guest-additions-on-debian-11-debian-10.html
+    apt update
+	apt upgrade -y
+	sudo apt install -y build-essential linux-headers-$(uname -r)
+	Executar a instalação do ISO de Clients do VirtualBox
+	
+Instalando o Python 3
+    ** Fonte https://www.how2shout.com/linux/install-python-3-x-or-2-7-on-debian-11-bullseye-linux/
+    apt update
+    apt install python3 python3-pip -y
+		Conferindo a versão instalada python: python3.9 --version
+		Conferindo a versão instalada pip: pip --version
+	Criando um alias para o python3.9
+    vim ~/.bash_profile
+	adicionar a linha abaixo no arquivo:
+		alias python='/usr/bin/python3.9'
+	Fechar e salvar o arquivo :wq!
+	Recarregar a configuração do alias: source ~/.bash_profile
+	Para confirmar a versão digite: python --version
+
+INSTALANDO O POSTGRESQL
+	sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+	wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+	sudo apt-get update
+	sudo apt-get -y install postgresql-{versao}
+
+    ** Utilitarios separados
+    postgresql-client-{versao}
+    libpq-dev
+    postgresql-server-dev-{versao}
+
+    **Opcional
+	    pgadmin4
+
+   - Criando um cluster no mesmo servidor
+	   su - postgres
+	   pg_createcluster 13 replica
+	   pg_ctlcluster 13 replica start
+	       - o comando sugere usar (Opcional) sudo systemctl start postgresql@13-replica
+	   sudo init 6
+
+		/*
+		** Local dos arquivos instalados do postgresql Default
+		  /var/lib/postgresql/{versao}/{cluster}/
+		  /var/log/postgresql
+		  /etc/postgresql/{versao}/{cluster}/postgresql.conf
+		** (FIM) Local dos arquivos instalados do postgresql Default  
+		*/
+
+LINUX COMANDOS ADICIONAIS
+	- Adicionando o usuário "usuario" ao grupo de sudoers, como usuário root executar a linha abaixo:
+		sudo usermod -a -G sudo usuario
+		** fonte: https://linuxhint.com/add_user_sudoers_debian/
+
+	- Criando grupos no linux
+		groupadd nomegrupo
+		usermod -a -G nomegrupo nomeusuario
+		
+	- NOHUP
+        cd /var/lib/postgresql/backup
+		tail -f nohup.out
+
