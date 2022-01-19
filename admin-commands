@@ -1,3 +1,6 @@
+-- UPTIME DATABASE
+    SELECT date_trunc('second', current_timestamp - pg_postmaster_start_time()) AS uptime;
+
 -- ATIVIDADES NO BANCO DE DADOS
     select datname,
         pid,
@@ -94,7 +97,3 @@
       flush_lag ,
       *
     from pg_stat_replication;
-
-
-    
-    
