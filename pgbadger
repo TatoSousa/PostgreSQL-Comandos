@@ -1,0 +1,14 @@
+PGBADGER COMMANDOS
+-------------------
+	-- Links uteis
+		https://www.youtube.com/watch?v=eDfilU3opXU
+	-- Instalando o pgbadger
+		-- Site oficial https://github.com/darold/pgbadger
+		sudo apt-get update
+		sudo apt-get install pgbadger
+
+1 - Executando
+		sudo pgbadger -b '2022-01-09 22:00:00' -e '2022-01-10 03:00:00' --appname 'APP ESPECIFICO' /var/log/pg/pg_2022-01-09_*.log -o nomearquivo.html
+
+2- Criando um badger de varios logs
+ pgbadger -o 'arquivo.html' /var/log/pg/pg_2022-01-19_*.log /var/log/pg/pg_2022-01-20_*.log
