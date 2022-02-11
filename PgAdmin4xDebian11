@@ -1,0 +1,31 @@
+Instalando o pgAdmin no debian 11
+
+
+--Abra o terminal, atualize os repositórios e instale os pacotes essenciais:
+sudo apt update
+sudo apt install -y apt-transport-https ca-certificates software-properties-common curl
+
+
+--Importe a assinatura do pgAdmin para o debian
+curl -fsSL https://www.pgadmin.org/static/packages_pgadmin_org.pub | sudo gpg --dearmor -o /usr/share/keyrings/pgadmin-keyring.gpg
+
+--Adicione o repositório do PgAdmin
+echo "deb [signed-by=/usr/share/keyrings/pgadmin-keyring.gpg] https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/bullseye pgadmin4 main" | sudo tee /etc/apt/sources.list.d/pgadmin4.list
+
+--Atualize os repositórios novamente
+sudo apt update
+
+--Instale o pgAdmin 4
+--Caso queira a versão Desktop
+sudo apt remove -y pgadmin4-desktop
+
+--Ou a versão Web
+sudo apt remove -y pgadmin4-web
+
+--Se você não se importar digite somente
+sudo apt remove -y pgadmin4
+
+--Para acessar o ambiente WEB é necessário configurar o seu ambiente
+sudo /usr/pgadmin4/bin/setup-web.sh
+
+--E acessar o seguinte endereço no browser http://{YOUR_IP_ADDRESS}/pgadmin4
