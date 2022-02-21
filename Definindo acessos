@@ -11,3 +11,17 @@ REVOKE ALL ON ALL TABLES IN SCHEMA public FROM PUBLIC ;
 GRANT SELECT                         ON ALL TABLES IN SCHEMA public TO read_only ;
 GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO read_write ;
 GRANT ALL                            ON ALL TABLES IN SCHEMA public TO admin ;
+
+
+
+
+OR...
+
+ALTER DEFAULT PRIVILEGES FOR ROLE admin
+GRANT SELECT                           ON TABLES TO read_only;  -- only read
+
+ALTER DEFAULT PRIVILEGES FOR ROLE admin
+GRANT INSERT, UPDATE, DELETE, TRUNCATE ON TABLES TO read_write;  -- + write, TRUNCATE optional
+
+ALTER DEFAULT PRIVILEGES FOR ROLE admin
+GRANT USAGE, SELECT, UPDATE ON SEQUENCES TO read_write;  -- SELECT, UPDATE are optional 
