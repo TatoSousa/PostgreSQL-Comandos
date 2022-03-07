@@ -10,9 +10,7 @@ GRANT  USAGE   ON SCHEMA public  TO user;
 REVOKE ALL ON ALL TABLES IN SCHEMA public FROM PUBLIC ;
 GRANT SELECT                         ON ALL TABLES IN SCHEMA public TO read_only ;
 GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO read_write ;
-GRANT ALL                            ON ALL TABLES IN SCHEMA public TO admin ;
-
-
+GRANT ALL         
 
 
 OR...
@@ -25,7 +23,6 @@ GRANT INSERT, UPDATE, DELETE, TRUNCATE ON TABLES TO read_write;  -- + write, TRU
 
 ALTER DEFAULT PRIVILEGES FOR ROLE admin
 GRANT USAGE, SELECT, UPDATE ON SEQUENCES TO read_write;  -- SELECT, UPDATE are optional 
-
 
 In PostgreSQL you have roles pg_read_all_data and pg_write_all_data.
 https://stackoverflow.com/questions/22483555/postgresql-give-all-permissions-to-a-user-on-a-postgresql-database/22486012#22486012
