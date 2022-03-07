@@ -1,0 +1,11 @@
+-- When you need discovery which users member of a determined group
+WITH RECURSIVE cte AS (
+   SELECT oid FROM pg_roles WHERE rolname ilike 'name%'
+
+   UNION ALL
+   SELECT m.roleid
+   FROM   cte
+   JOIN   pg_auth_members m ON m.member = cte.oid
+   )
+SELECT oid, oid::regrole::text AS rolename FROM cte;
+
