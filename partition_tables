@@ -1,0 +1,11 @@
+--Show table properties
+SELECT current_timestamp(0) AS datahora,
+       table_schema,
+	   table_name,
+	   pg_size_pretty (pg_relation_size(CONCAT(table_schema,'.',table_name)::text)) AS tamanho,
+       pg_size_pretty (pg_indexes_size(CONCAT(table_schema,'.',table_name)::text)) AS indexes,
+	   n_live_tup as registros, n_tup_ins, n_tup_upd, n_tup_del
+  FROM information_schema.tables
+  LEFT JOIN pg_stat_user_tables ON (table_schema = schemaname ) AND (table_name = relname)
+ WHERE table_name ILIKE 'your_table_name_here%'
+ ORDER BY table_name;
