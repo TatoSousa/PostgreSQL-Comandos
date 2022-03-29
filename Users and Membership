@@ -9,3 +9,24 @@ WITH RECURSIVE cte AS (
    )
 SELECT oid, oid::regrole::text AS rolename FROM cte;
 
+--Memberships of
+select pg_user.usename as username, string_agg(rolname, ', ') as grupo
+from pg_user left join pg_auth_members on (pg_user.usesysid=pg_auth_members.member)
+left join pg_roles on (pg_roles.oid=pg_auth_members.roleid)
+where usename in ('{user_name}')
+group by pg_user.usename
+order by pg_user.usename;
+
+--tables permissions
+SELECT grantee, table_catalog, table_schema, table_name, privilege_type
+FROM table_privileges()
+where grantee in ('{user_name}');
+
+--Users on group
+select pg_user.usename as username, string_agg(rolname, ', ') as grupo
+from pg_user left join pg_auth_members on (pg_user.usesysid=pg_auth_members.member)
+left join pg_roles on (pg_roles.oid=pg_auth_members.roleid)
+where rolname = '{group_name}'
+group by pg_user.usename
+order by pg_user.usename;
+
