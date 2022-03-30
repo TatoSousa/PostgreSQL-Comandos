@@ -42,8 +42,8 @@ APÓS A INSTALAÇÃO DO DEBIAN
 	Reiniciar o debian;
 
 Instalando os programas adicionais:
-	apt upgrade
-	apt update
+	apt upgrade -y
+	apt update -y
 	apt install rsync -y
 	apt install iotop -y
 	apt install sysstat -y
