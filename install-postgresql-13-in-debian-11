@@ -32,7 +32,9 @@ Instalando o Debian;
 
 APÓS A INSTALAÇÃO DO DEBIAN
 ===========================
-	Instalar o VIM - apt install vim
+	Instalar o VIM
+	       su root
+	       apt install vim -y
 	Abrir o VIM e comentar a linha do cdrom do arquivo /etc/apt/sources.list
 		cp /etc/apt/sources.list /etc/apt/sources.list.backup
 		vim /etc/apt/sources.list
