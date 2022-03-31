@@ -48,11 +48,11 @@ Instalando os programas adicionais:
 	apt install iotop -y
 	apt install sysstat -y
 	apt install gnupg -y
-    apt install gnupg2 -y
+   	apt install gnupg2 -y
 
 Instalando virtualbox clients
     ** Fonte: https://www.itzgeek.com/how-tos/linux/debian/how-to-install-virtualbox-guest-additions-on-debian-11-debian-10.html
-    apt update
+    	apt update
 	apt upgrade -y
 	sudo apt install -y build-essential linux-headers-$(uname -r)
 	Executar a instalação do ISO de Clients do VirtualBox
