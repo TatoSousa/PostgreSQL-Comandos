@@ -1,0 +1,16 @@
+-- Compare 2 tables.
+
+WITH tabela_origem AS (SELECT ordinal_position, column_name, data_type, character_maximum_length, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'public' AND table_name = 'tabela_origem'),
+     tabela_destino AS (SELECT ordinal_position, column_name, data_type, character_maximum_length, numeric_precision, numeric_scale FROM information_schema.columns WHERE table_schema = 'public' AND  table_name = 'tabela_destino')
+SELECT tabela_origem.ordinal_position, tabela_origem.column_name, tabela_origem.data_type, COALESCE(tabela_origem.character_maximum_length, tabela_origem.numeric_precision) as tamanho_precisao, tabela_origem.numeric_scale,
+       tabela_destino.ordinal_position, tabela_destino.column_name, tabela_destino.data_type, COALESCE(tabela_destino.character_maximum_length, tabela_destino.numeric_precision) as tamanho_precisao, tabela_destino.numeric_scale,
+	   TRIM(
+		   CASE WHEN tabela_origem.ordinal_position <> tabela_destino.ordinal_position THEN ' POSITION' ELSE '' END ||
+		   CASE WHEN tabela_origem.data_type <> tabela_destino.data_type THEN ' TYPE' ELSE '' END ||
+		   CASE WHEN COALESCE(tabela_origem.character_maximum_length, tabela_origem.numeric_precision) <> COALESCE(tabela_destino.character_maximum_length, tabela_destino.numeric_precision) THEN ' PRECISION' ELSE '' END||
+		   CASE WHEN tabela_origem.numeric_scale <> tabela_destino.numeric_scale THEN ' SCALE' ELSE '' END
+	   )
+	   AS diferences	   
+     FROM tabela_origem
+LEFT JOIN tabela_destino ON (tabela_origem.column_name = tabela_destino.column_name)
+ORDER BY tabela_origem.ordinal_position;
