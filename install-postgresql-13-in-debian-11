@@ -89,9 +89,9 @@ INSTALANDO O POSTGRESQL
 
    - Criando um cluster no mesmo servidor
 	   su - postgres
-	   pg_createcluster 13 replica
-	   pg_ctlcluster 13 replica start
-	       - o comando sugere usar (Opcional) sudo systemctl start postgresql@13-replica
+	   pg_createcluster 13 cluster2
+	   pg_ctlcluster 13 cluster2 start
+	       - o comando sugere usar (Opcional) sudo systemctl start postgresql@13-cluster2
 	   sudo init 6
 
 		/*
