@@ -1,0 +1,17 @@
+--Font: https://askubuntu.com/questions/800/how-to-run-scripts-every-5-seconds
+-- If you need to run scripts in x seconds. Create a file with this commands:
+
+#!/bin/bash
+while true; do
+        #Do something
+        psql -h 127.0.0.1 -p 5432 databasename -c 'INSERT INTO dataexecucao(data_insert) VALUES (current_timestamp);'
+        #This example run in 15 seconds
+        sleep 15;
+done
+
+--after this run this command to execute permissions  chmod +x your_file_name.sh
+--To run execute in terminal "sh your_file_name.sh" or "./your_file_name.sh"
+
+-- If you want to add in crontab
+@reboot ./your_file_name.sh
+
