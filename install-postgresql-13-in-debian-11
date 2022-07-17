@@ -63,6 +63,10 @@ Instalando virtualbox clients
 	apt upgrade -y
 	sudo apt install -y build-essential linux-headers-$(uname -r)
 	Executar a instalação do ISO de Clients do VirtualBox
+	sudo mount /dev/cdrom /mnt
+	cd /mnt
+	sudo ./VBoxLinuxAdditions.run
+	sudo reboot
 	
 Instalando o Python 3
     ** Fonte https://www.how2shout.com/linux/install-python-3-x-or-2-7-on-debian-11-bullseye-linux/
