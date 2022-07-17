@@ -50,6 +50,13 @@ Instalando os programas adicionais:
 	apt install gnupg -y
    	apt install gnupg2 -y
 
+Liberando o SSH para o root logar (caso você faça isso é por sua conta e risco)
+        nano /etc/ssh/sshd_config
+	Adicionar ou alterar a linha
+	     PermitRootLogin yes
+	Salvar e reiniciar o serviço do SSH
+	service sshd restart	
+	
 Instalando virtualbox clients
     ** Fonte: https://www.itzgeek.com/how-tos/linux/debian/how-to-install-virtualbox-guest-additions-on-debian-11-debian-10.html
     	apt update
