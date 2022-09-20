@@ -17,13 +17,13 @@ sudo apt update
 
 --Instale o pgAdmin 4
 --Caso queira a versão Desktop
-sudo apt remove -y pgadmin4-desktop
+sudo apt install -y pgadmin4-desktop
 
 --Ou a versão Web
-sudo apt remove -y pgadmin4-web
+sudo apt install -y pgadmin4-web
 
 --Se você não se importar digite somente
-sudo apt remove -y pgadmin4
+sudo apt install -y pgadmin4
 
 --Para acessar o ambiente WEB é necessário configurar o seu ambiente
 sudo /usr/pgadmin4/bin/setup-web.sh
