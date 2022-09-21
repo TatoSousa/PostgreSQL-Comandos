@@ -29,7 +29,7 @@ Instalando o pgAdmin no debian 11
 
     --E acessar o seguinte endereço no browser http://{YOUR_IP_ADDRESS}/pgadmin4
 
-Perdeu a senha e email cadastrado do Pgadmin4:
+Esqueceu a senha e email cadastrado do ADMIN do Pgadmin4:
    mv /var/lib/pgadmin/pgadmin4.db /var/lib/pgadmin/pgadmin4.db.tmp
    /usr/pgadmin4/bin/setup-web.sh
    service apache stop
