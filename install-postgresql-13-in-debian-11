@@ -49,6 +49,7 @@ Instalando os programas adicionais:
 	apt install sysstat -y
 	apt install gnupg -y
    	apt install gnupg2 -y
+	apt install net-tools -y
 
 Liberando o SSH para o root logar (caso você faça isso é por sua conta e risco)
         nano /etc/ssh/sshd_config
