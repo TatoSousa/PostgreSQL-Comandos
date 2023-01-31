@@ -97,7 +97,7 @@ INSTALANDO O POSTGRESQL
     postgresql-server-dev-{versao}
 
     **Opcional
-	    pgadmin4
+	    https://github.com/TatoSousa/postgres/blob/master/PgAdmin4xDebian11
 
    - Criando um cluster no mesmo servidor
 	   su - postgres
