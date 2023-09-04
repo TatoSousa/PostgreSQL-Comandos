@@ -74,15 +74,15 @@ SELECT MAX(last_date) FROM recs WHERE util = TRUE
 
 ### Função para converter a timestamp para decimal
 ```sql
-CREATE OR REPLACE FUNCTION f_v_measured_time_base10(
-		p_measured_time INTERVAL, OUT o_measured_time_base10 FLOAT) AS $_$
-	DECLARE
-	BEGIN
-	    --SELECT * FROM f_v_measured_time_base10('08:50:00'::time);
-		o_measured_time_base10:=(EXTRACT(EPOCH FROM p_measured_time) / EXTRACT(EPOCH FROM '1:00:00'::INTERVAL));
-	END;
-	$_$ LANGUAGE plpgsql IMMUTABLE STRICT;
+CREATE OR REPLACE FUNCTION f_v_measured_time_base10(p_measured_time INTERVAL, OUT o_measured_time_base10 FLOAT) AS $_$
+DECLARE
+BEGIN
+	--SELECT * FROM f_v_measured_time_base10('08:50:00'::time);
+	o_measured_time_base10:=(EXTRACT(EPOCH FROM p_measured_time) / EXTRACT(EPOCH FROM '1:00:00'::INTERVAL));
+END;
+$_$ LANGUAGE plpgsql IMMUTABLE STRICT;
 
+--ou
 SELECT to_char(to_timestamp((12.5) * 60), 'MI:SS');
 SELECT EXTRACT(EPOCH FROM '1:00:00'::INTERVAL) --3600
 
