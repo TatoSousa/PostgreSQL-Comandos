@@ -34,6 +34,14 @@ apt install pgbadger
 
 
 ## Scripts úteis
+
+### Reload das configurações pg_hba.conf
+-- Verificando se foi executado o pg_reload_conf no postgresql após a alteração do pg_hba
+```sql
+SELECT pg_conf_load_time() > modification FROM pg_stat_file(current_setting('hba_file'));
+SELECT pg_reload_conf();
+```
+
 ### Conexões ativas no banco
 ```sql
 WITH recs AS (
