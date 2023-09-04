@@ -27,9 +27,9 @@ apt install -y pgadmin4-web
 ### Conexões ativas no banco
 ```sql
 WITH recs AS (
-	SELECT current_setting('max_connections') as max_connections,
+SELECT current_setting('max_connections') as max_connections,
        COUNT(1) AS open_connections,
-		 COUNT(1) FILTER (WHERE state IS NULL) AS sys,
+       COUNT(1) FILTER (WHERE state IS NULL) AS sys,
        COUNT(1) FILTER (WHERE state = 'idle') AS idle,
        COUNT(1) FILTER (WHERE state = 'idle in transaction') AS in_transaction,
        COUNT(1) FILTER (WHERE state = 'active') AS active
