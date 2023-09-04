@@ -21,7 +21,17 @@ apt install -y pgadmin4-web
 -- Para acessar o ambiente WEB é necessário configurar o seu ambiente
 /usr/pgadmin4/bin/setup-web.sh
 -- LINK  http://{YOUR_IP_ADDRESS}/pgadmin4
-```    
+```
+
+### Instalando o PgBadger
+```console
+apt update
+apt install pgbadger
+```
+
+- pgbadger -b '2022-01-09 22:00:00' -e '2022-01-10 03:00:00' --appname 'APP ESPECIFICO' /var/log/pg/pg_2022-01-09_*.log -o nomearquivo.html
+- pgbadger -o 'arquivo.html' /var/log/pg/pg_2022-01-19_*.log /var/log/pg/pg_2022-01-20_*.log
+
 
 ## Scripts úteis
 ### Conexões ativas no banco
