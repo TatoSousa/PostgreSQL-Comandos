@@ -1,1 +1,13 @@
-Funções usadas para administrar bancos de dados PostgreSQL
+##Comandos úteis para Postgresql
+
+
+<details>
+<summary>Instalando o PostgreSQL no Debian</summary>
+```sql
+sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
+apt update
+apt -y install postgresql-{versao}
+```
+</details>
+
