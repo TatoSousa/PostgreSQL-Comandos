@@ -18,7 +18,7 @@ echo "deb [signed-by=/usr/share/keyrings/pgadmin-keyring.gpg] https://ftp.postgr
 apt update
 apt install -y pgadmin4-web
 
---Para acessar o ambiente WEB é necessário configurar o seu ambiente
+#Para acessar o ambiente WEB é necessário configurar o seu ambiente
 /usr/pgadmin4/bin/setup-web.sh
---LINK  http://{YOUR_IP_ADDRESS}/pgadmin4
+#LINK  http://{YOUR_IP_ADDRESS}/pgadmin4
 ```    
