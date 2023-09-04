@@ -40,6 +40,6 @@ SELECT max_connections,
 		 idle,
 		 in_transaction,
 		 active,
-		 ROUND(open_connections/max_connections,2) AS open_perc
+		 ROUND(open_connections::decimal(5,0)/max_connections::decimal(5,0),2)*100 AS open_perc
   FROM recs;
 ```
