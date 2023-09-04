@@ -71,3 +71,23 @@ SELECT last_date,
   FROM generate_series(current_date-INTERVAL '7days', current_date, interval '1 day') AS g(last_date))
 SELECT MAX(last_date) FROM recs WHERE util = TRUE
 ```
+
+### Função para converter a timestamp para decimal
+```sql
+CREATE OR REPLACE FUNCTION f_v_measured_time_base10(
+		p_measured_time INTERVAL, OUT o_measured_time_base10 FLOAT) AS $_$
+	DECLARE
+	BEGIN
+	    --SELECT * FROM f_v_measured_time_base10('08:50:00'::time);
+		o_measured_time_base10:=(EXTRACT(EPOCH FROM p_measured_time) / EXTRACT(EPOCH FROM '1:00:00'::INTERVAL));
+	END;
+	$_$ LANGUAGE plpgsql IMMUTABLE STRICT;
+
+SELECT to_char(to_timestamp((12.5) * 60), 'MI:SS');
+SELECT EXTRACT(EPOCH FROM '1:00:00'::INTERVAL) --3600
+
+-- Outras opções
+SELECT EXTRACT(hour FROM current_timestamp) + EXTRACT(minute FROM current_timestamp)/60.0 as decimal_hours;
+SELECT (EXTRACT(hour FROM current_timestamp) + EXTRACT(minute FROM current_timestamp)/60.0) * INTERVAL '1h' as decimal_hours;
+```
+
