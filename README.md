@@ -43,3 +43,10 @@ SELECT max_connections,
 		 ROUND(open_connections::decimal(5,0)/max_connections::decimal(5,0),2)*100 AS open_perc
   FROM recs;
 ```
+
+### Identificando o ultimo dia útil
+```sql
+WITH recs AS (SELECT last_date, CASE WHEN EXTRACT(DOW FROM last_date) IN (0,1) THEN FALSE ELSE TRUE END AS util
+  FROM generate_series(current_date-INTERVAL '7days', current_date, interval '1 day') AS g(last_date))
+SELECT MAX(last_date) FROM recs WHERE util = TRUE
+```
