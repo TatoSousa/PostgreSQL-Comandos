@@ -1,26 +1,36 @@
-#Instalando o Java
+#Execute estes comandos no terminal do linux
+
+#Instalando os programas necessários
+
 sudo apt update
+sudo apt install curl -y
+
+#Instalando o Java
 sudo apt show default-jdk
 sudo apt install default-jdk -y
-
 java --version
 
 #Efetuando o download e configurando
-  sudo apt install curl
-  ls -ltrh
-  cd Documents/
-  cd BrModelo/
-  curl -o $(pwd)/brModelo.png -OL https://github.com/chcandido/brModelo/raw/master/src/images/logico.png
-  ls -ltrh
- 
- echo -e "[Desktop Entry]\n
-     Version=1.0\n
-     Name=brModelo\n
-     Exec=java -jar $(pwd)/brModelo.jar\n
-     Icon=$(pwd)/brModelo.png\n
-     Type=Application\n
-     Comment=The software for MER\n
-     Path=$(pwd)\n
-     Terminal=false\n
-     StartupNotify=true\n
-     Categories=Development;Education;" | tee $HOME/.local/share/applications/brModelo.desktop
+sudo apt install curl
+ls -ltrh
+cd Documents/
+cd BrModelo/
+curl -o $(pwd)/brModelo.png -OL https://github.com/chcandido/brModelo/raw/master/src/images/logico.png
+curl -o $(pwd)/brModelo.png -OL https://github.com/chcandido/brModelo/tree/master/brModelo.jar
+ls -ltrh
+
+#Criando o arquivo de Link
+echo -e "[Desktop Entry]\n
+		Version=1.0\n
+		Name=brModelo\n
+		Exec=java -jar $(pwd)/brModelo.jar\n
+		Icon=$(pwd)/brModelo.png\n
+		Type=Application\n
+		Comment=The software for MER\n
+		Path=$(pwd)\n
+		Terminal=false\n
+		StartupNotify=true\n
+		Categories=Development;Education;" | tee $HOME/.local/share/applications/brModelo.desktop
+		
+
+#Após a instalação será possível acessar o BrModelo no menu de aplicativos
