@@ -15,8 +15,8 @@ sudo apt install curl
 ls -ltrh
 cd Documents/
 cd BrModelo/
-curl -o $(pwd)/brModelo.png -OL https://github.com/chcandido/brModelo/raw/master/src/images/logico.png
-curl -o $(pwd)/brModelo.png -OL https://github.com/chcandido/brModelo/tree/master/brModelo.jar
+curl -o $(pwd)/brModelo.png -OL https://github.com/chcandido/brModelo/blob/master/src/imagens/logico.png
+curl -o $(pwd)/brModelo.jar -OL https://github.com/chcandido/brModelo/tree/master/brModelo.jar
 ls -ltrh
 
 #Criando o arquivo de Link
